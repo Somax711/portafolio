@@ -70,7 +70,7 @@ a{
 }
 .titulo {
   margin-top: 45px;
-  font-size: 2.1em;
+  font-size: 2.0em;
   text-decoration: none;
   background: rgba(0, 0, 0, 0.416) -webkit-gradient(linear, left top, right top, from(#909ff3), color-stop(#90e9f3), color-stop(#909ff3), color-stop(#cc90f3), color-stop(#f390d1), color-stop(#f39a90), color-stop(#f3e590), to(#b8f390)) repeat scroll 0% 0%/200% 200%;
   background: rgba(0, 0, 0, 0.441) linear-gradient(90deg, #909ff3, #90e9f3, #909ff3, #cc90f9, #f390d1, #f39a97, #f3e590, #b8f390) repeat scroll 0% 0%/200% 200%;
@@ -91,6 +91,17 @@ a{
     50% { background-position: 100% 50% }
     100% { background-position: 0% 50% }
   }
+
+
+@media (max-width: 768px) {
+  .titulo {
+    font-size: 1.4em;
+    margin-top: 20px;
+  }
+  .avatar img {
+    width: 250px;
+  }   
+}
   /*titulos de seccion*/
 
  .neon-animated {
@@ -101,9 +112,12 @@ a{
     color: #000;
     animation: neon 1.5s ease-in-out infinite alternate;
 }
-
-
-
+@media (max-width: 768px) {
+    .neon-animated {
+        font-size: 2.5rem;
+        text-align: center;
+  }
+  }
  /*sobre mi*/
  .sobremi{
   margin-top: 80px;
@@ -276,9 +290,9 @@ button {
   margin-top: 22px;
   position: relative;
   padding: 12px 35px;
-  background: #90e9f3;
-  font-size: 17px;
-  font-weight: 600;
+  background: #909ff3;
+  font-size: 10px;
+  font-weight: 300;
   color: #565353;
   border: 1px solid #dddee6;
   border-radius: 19px;
@@ -288,140 +302,12 @@ button {
   text-decoration: none;
 }
 
-.star-1 {
-  position: absolute;
-  top: 20%;
-  left: 20%;
-  width: 25px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
-}
-
-.star-2 {
-  position: absolute;
-  top: 45%;
-  left: 45%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-3 {
-  position: absolute;
-  top: 40%;
-  left: 40%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-4 {
-  position: absolute;
-  top: 20%;
-  left: 40%;
-  width: 8px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-5 {
-  position: absolute;
-  top: 25%;
-  left: 45%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
-}
-
-.star-6 {
-  position: absolute;
-  top: 5%;
-  left: 50%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 0 #fffdef);
-  z-index: -5;
-  transition: all 0.8s ease;
-}
-
 button:hover {
   background: transparent;
   color: #909ff3;
-  box-shadow: 0 0 25px #fec1958c;
+  box-shadow: 0 0 35px rgba(31, 38, 135, 0.37);
 }
 
-button:hover .star-1 {
-  position: absolute;
-  top: -80%;
-  left: -30%;
-  width: 25px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-2 {
-  position: absolute;
-  top: -40%;
-  left: 16%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-3 {
-  position: absolute;
-  top: 95%;
-  left: 2%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-4 {
-  position: absolute;
-  top: -70%;
-  left: 75%;
-  width: 8px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-button:hover .star-5 {
-  position: absolute;
-  top: 35%;
-  left: 115%;
-  width: 15px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-button:hover .star-6 {
-  position: absolute;
-  top: 75%;
-  left: 60%;
-  width: 5px;
-  height: auto;
-  filter: drop-shadow(0 0 10px #fffdef);
-  z-index: 2;
-}
-
-.fil0 {
-  fill: #fffdef;
-}
 /*estilos y efectos de titulos*/
 .container-titulos {
   display: flex;
@@ -430,6 +316,7 @@ button:hover .star-6 {
   height: 30vh;
   margin-top: 120px;
 }
+
   /*portafolio*/
 /* Estilos para la burbuja de "Ver Proyecto" */
 .view-project-bubble {
@@ -643,7 +530,7 @@ button:hover .star-6 {
 .chat-input button {
   padding: 8px 15px;
   border: none;
-  background: #4CAF50;
+  background: #909ff3;
   color: white;
   border-radius: 0 5px 5px 0;
   cursor: pointer;
@@ -691,19 +578,19 @@ button:hover .star-6 {
 }
 
 .robot {
-  width: 130px;
+  width: 100px;
   height: auto;
   cursor: pointer;
 }
 
 .fixed-message {
   position: absolute;
-  bottom: 130px;
+  bottom: 100px;
   right: 0;
-  background-color: #000;
+  background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  box-shadow: 0 4px 18px rgba(31, 38, 135, 0.37);
+  padding: 10px;
   display: none;
 }
 
@@ -715,10 +602,10 @@ button:hover .star-6 {
 .chat-bubble {
   display: none;
   position: absolute;
-  bottom: 150px;
+  bottom: 100px;
   right: 0;
-  width: 350px;
-  background-color: #000;
+  width: 300px;
+  background-color: rgba(31, 38, 135, 0.90);
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 5px;
@@ -755,7 +642,7 @@ button:hover .star-6 {
 }
 
 .chat-btn {
-  background-color: #90e9f3;
+  background-color: #909ff3;
   color: #000;
   font-size: 15px;
   border: none;
@@ -786,7 +673,7 @@ p{
 .carousel-container {
   overflow: hidden;
   width: 100%;
-  margin: 35px 0;
+  margin: 50px 0;
 }
 .carousel {
   display: flex;
@@ -801,7 +688,7 @@ p{
 }
 .carousel-btn {
   flex: 0 0 auto;
-  margin-right: 10px;
+  margin-right: 5px;
   padding: 5px 5px;;
   display: flex;
   align-items: center;
@@ -809,26 +696,25 @@ p{
   flex-direction: column;
 }
 .carousel-btn img {
-  width: 50px;
-  height: 35px;
+  width: 70px;
+  height: 50px;
   margin-bottom: 5px;
 }
 .carousel-btn {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px 20px ;
-  font-size: 15px;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px 5px ;
+  font-size: 10px;
   color: #fff;
   display: flex;
   align-items: center;
   gap: 10px;
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 5px 30px rgba(31, 38, 135, 0.37);
   cursor: pointer;
   transition: transform 0.3s, box-shadow 0.3s;
-  margin-right: 20px; 
+  margin-right: 30px; 
 }
 .carousel-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.3);
 }
 @keyframes scroll-left {
   0% {
@@ -1233,8 +1119,8 @@ p{
 }
 
 .cards {
-    width: 300px;
-    height: 300px;
+    width: 230px;
+    height: 290px;
     transform-style: preserve-3d;
     perspective: 500px;
     border: none;
@@ -1316,7 +1202,7 @@ border-bottom: 1px solid #999; */
     transform: rotateY(360deg);
 }
 
-@media(max-width: 991.5px) {
+@media(max-width: 768px) {
     .col-lg-4 {
         margin-top: 40px;
         margin-bottom: 20px;

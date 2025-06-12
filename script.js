@@ -50,7 +50,7 @@ function showOptions() {
   var chatContent = document.getElementById('chat-content');
   chatContent.innerHTML = `
     <p>¡Genial! Puedo ayudarte a contactar con Karen, ¿que necesitas?</p>
-    <button class="chat-btn" onclick="showServices()">Contratar sus servicios</button>
+    <button class="chat-btn" onclick="showServices()">Tipos de proyectos</button>
     <button class="chat-btn" onclick="showSocialMedia()">Contactarla en redes sociales</button>
   `;
 }
@@ -67,11 +67,6 @@ function showServices() {
       <li>Soporte técnico</li>
       <li>Analisis de datos</li>
     </ul>
-    <p>Puedes contactárme a través de:</p>
-    <ul>
-      <li><a href="https://wa.me/56937110135" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-      <li><a href="mailto:karenbustamanteayan@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-    </ul>
     <button class="chat-btn" onclick="showOptions()">Volver</button>
   `;
 }
@@ -82,8 +77,10 @@ function showSocialMedia() {
   chatContent.innerHTML = `
     <p>Contáctame en redes sociales:</p>
     <ul>
+      <li><a href="https://wa.me/56937110135" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+      <li><a href="mailto:karenbustamanteayan@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
       <li><a href="https://www.facebook.com/k.bustamantearo" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-      <li><a href="https://github.com/Somax711" target="_blank"><i class="fab fa-fa-github"></i> Github</a></li>
+      <li><a href="https://github.com/Somax711" target="_blank"><i class="fab fa-github"></i> Github</a></li>
       <li><a href="https://www.linkedin.com/in/karen-jasmin-bustamante-ayan-03401b240/" target="_blank"><i class="fab fa-linkedin"></i>Linkedin</a></li>
     </ul>
     <button class="chat-btn" onclick="showOptions()">Volver</button>
