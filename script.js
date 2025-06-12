@@ -135,3 +135,4 @@ window.addEventListener('load', checkVisibility);
   chatBox.scrollTop = chatBox.scrollHeight;
   input.value = '';
 }
+

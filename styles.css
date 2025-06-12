@@ -93,30 +93,20 @@ a{
   }
   /*titulos de seccion*/
 
-  .neon {
+ .neon-animated {
     font-size: 4rem;
     text-shadow: 
       0 0 5px #ffff, 
       0 0 20px #90e9f3;
     color: #000;
-}
-@keyframes entrada {
-  0% {
-      transform: translateY(-50px); 
-      opacity: 0;
-  }
-  100% {
-      transform: translateY(0);
-      opacity: 1;
-  }
+    animation: neon 1.5s ease-in-out infinite alternate;
 }
 
-.neon-animated {
-  animation: entrada 2s ease-out;
-}
+
+
  /*sobre mi*/
  .sobremi{
-  margin-top: 110px;
+  margin-top: 80px;
 	display:flex;
   justify-content:center;
   min-height: 100vh;
@@ -127,7 +117,7 @@ a{
 
     .card1 {
       width: 80%;
-      max-width: 1000px;
+      max-width: 900px;
       height: 300px;
       display: flex;
       flex-direction: row;
