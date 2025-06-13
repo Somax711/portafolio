@@ -578,7 +578,7 @@ button:hover {
 }
 
 .robot {
-  width: 100px;
+  width: 120px;
   height: auto;
   cursor: pointer;
 }
@@ -589,14 +589,14 @@ button:hover {
   right: 0;
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  box-shadow: 0 4px 18px rgba(31, 38, 135, 0.37);
+  box-shadow: 0 4px 18px rgba(31, 38, 135, 0.50);
   padding: 10px;
   display: none;
 }
 
 .fixed-message p {
   margin: 0;
-  font-size: 15px;
+  font-size: 20px;
 }
 
 .chat-bubble {
@@ -624,6 +624,7 @@ button:hover {
   list-style: none;
   padding: 0;
   color: #fff;
+  font-size: 25px;
 }
 
 .chat-content ul li {
