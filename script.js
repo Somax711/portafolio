@@ -1,135 +1,176 @@
-//cursor con brillo
+// Cursor con brillo
 document.addEventListener('mousemove', (event) => {
-    createGlow(event.pageX, event.pageY);
+  const glow = document.createElement('div');
+  glow.classList.add('glow');
+  glow.style.left = `${event.pageX}px`;
+  glow.style.top = `${event.pageY}px`;
+  document.body.appendChild(glow);
+  setTimeout(() => glow.remove(), 1000);
 });
 
-function createGlow(x, y) {
-    const glow = document.createElement('div');
-    glow.classList.add('glow');
-    glow.style.left = `${x}px`;
-    glow.style.top = `${y}px`;
-    document.body.appendChild(glow);
+// Mostrar mensaje flotante al cargar la página
+window.addEventListener('load', () => {
+  const fixedMessage = document.getElementById('fixed-message');
+  if (fixedMessage) fixedMessage.style.display = 'block';
+});
 
-    setTimeout(() => {
-        glow.remove();
-    },1000);
+// Variables globales para chat y input
+const chatContent = document.getElementById('chat-content');
+const input = document.getElementById('user-input');
+const sendBtn = document.querySelector('#chat-bubble button[onclick="sendMessage()"]');
+
+// Función para mostrar las opciones iniciales del chat
+function showOptions() {
+  chatContent.innerHTML = `
+    <p>¡Hola! ¿Qué quieres hacer?</p>
+    <button class="chat-btn" onclick="showContact()">Contactar</button>
+    <button class="chat-btn" onclick="showProjects()">Tipos de proyecto</button>
+  `;
+  input.style.display = 'none';  // Ocultar input
+  if (sendBtn) sendBtn.style.display = 'none';  // Ocultar botón enviar
 }
 
-//proyectos
-window.addEventListener('scroll', function() {
-  const thumbnails = document.querySelectorAll('.thumbnail');
-  thumbnails.forEach(thumb => {
-      const rect = thumb.getBoundingClientRect();
-      if (rect.top >= 2 && rect.bottom <= window.innerHeight) {
-          thumb.classList.add('in-view');
-      }
-  });
-});
+// Mostrar opciones de contacto
+function showContact() {
+  chatContent.innerHTML = `
+    <p>Contáctame por:</p>
+    <ul>
+      <li><a href="https://wa.me/56937110135" target="_blank">WhatsApp</a></li>
+      <li><a href="mailto:karenbustamanteayan@gmail.com">Email</a></li>
+      <li><a href="https://www.facebook.com/k.bustamantearo" target="_blank">Facebook</a></li>
+      <li><a href="https://github.com/Somax711" target="_blank">GitHub</a></li>
+      <li><a href="https://www.linkedin.com/in/karen-jasmin-bustamante-ayan-03401b240/" target="_blank">LinkedIn</a></li>
+    </ul>
+    <button class="chat-btn" onclick="showOptions()">Volver</button>
+  `;
+  input.style.display = 'none';
+  if (sendBtn) sendBtn.style.display = 'none';
+}
 
-// Mostrar el mensaje fijo cuando se carga la página
-window.addEventListener('load', function() {
-  var fixedMessage = document.getElementById('fixed-message');
-  fixedMessage.style.display = 'block';
-});
+// Mostrar tipos de proyecto
+function showProjects() {
+  chatContent.innerHTML = `
+    <h4>Ofrezco soluciones en:</h4>
+    <ul>
+      <li>Desarrollo Web</li>
+      <li>Aplicaciones IA</li>
+      <li>Desarrollo de Software</li>
+      <li>Soporte técnico</li>
+      <li>Análisis de datos</li>
+    </ul>
+    <button class="chat-btn" onclick="showOptions()">Volver</button>
+  `;
+  input.style.display = 'none';
+  if (sendBtn) sendBtn.style.display = 'none';
+}
 
-// Mostrar la burbuja de chat cuando se hace clic en el robot
-document.getElementById('robot').addEventListener('click', function() {
-  var chatBubble = document.getElementById('chat-bubble');
-  var fixedMessage = document.getElementById('fixed-message');
+// Mostrar u ocultar el chat al hacer clic en el robot
+document.getElementById('robot').addEventListener('click', () => {
+  const chatBubble = document.getElementById('chat-bubble');
+  const fixedMessage = document.getElementById('fixed-message');
   if (chatBubble.style.display === 'none' || chatBubble.style.display === '') {
-    chatBubble.style.display = 'block';
+    chatBubble.style.display = 'flex';
     fixedMessage.style.display = 'none';
+    showOptions();
   } else {
     chatBubble.style.display = 'none';
     fixedMessage.style.display = 'block';
   }
 });
 
-// Mostrar opciones de chat
-function showOptions() {
-  var chatContent = document.getElementById('chat-content');
-  chatContent.innerHTML = `
-    <p>¡Genial! Puedo ayudarte a contactar con Karen, ¿que necesitas?</p>
-    <button class="chat-btn" onclick="showServices()">Tipos de proyectos</button>
-    <button class="chat-btn" onclick="showSocialMedia()">Contactarla en redes sociales</button>
-  `;
-}
 
-// Mostrar opciones de servicios
-function showServices() {
-  var chatContent = document.getElementById('chat-content');
-  chatContent.innerHTML = `
-    <p>Ofrezco los siguientes servicios:</p>
-    <ul>
-      <li>Diseño web</li>
-      <li>Aplicaciones IA</li>
-      <li>Desarrollo de Software</li>
-      <li>Soporte técnico</li>
-      <li>Analisis de datos</li>
-    </ul>
-    <button class="chat-btn" onclick="showOptions()">Volver</button>
-  `;
-}
+//hero
+const typedText = document.getElementById('typed');
+const words = ['Karen', 'Desarrolladora Web', 'Creativa', 'Apasionada por la tecnología'];
+let wordIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
 
-// Mostrar opciones de redes sociales
-function showSocialMedia() {
-  var chatContent = document.getElementById('chat-content');
-  chatContent.innerHTML = `
-    <p>Contáctame en redes sociales:</p>
-    <ul>
-      <li><a href="https://wa.me/56937110135" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
-      <li><a href="mailto:karenbustamanteayan@gmail.com"><i class="fas fa-envelope"></i> Email</a></li>
-      <li><a href="https://www.facebook.com/k.bustamantearo" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
-      <li><a href="https://github.com/Somax711" target="_blank"><i class="fab fa-github"></i> Github</a></li>
-      <li><a href="https://www.linkedin.com/in/karen-jasmin-bustamante-ayan-03401b240/" target="_blank"><i class="fab fa-linkedin"></i>Linkedin</a></li>
-    </ul>
-    <button class="chat-btn" onclick="showOptions()">Volver</button>
-  `;
-}
+function typeEffect() {
+  const currentWord = words[wordIndex];
+  const displayed = currentWord.substring(0, charIndex);
+  typedText.textContent = displayed;
 
-//carousel skills
-
-window.addEventListener('scroll', checkVisibility);
-window.addEventListener('load', checkVisibility);
-
-//chatbot
-  function openModal(id) {
-      document.getElementById(id).style.display = 'flex';
-    }
-
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
-    }
-
-    //chatbot1 dentro de modal
- function sendMessage() {
-  const input = document.getElementById('user-input');
-  const chatBox = document.getElementById('chat-box');
-  const userText = input.value.trim();
-
-  if (userText === '') return;
-
-  const userMessage = document.createElement('div');
-  userMessage.className = 'message user';
-  userMessage.textContent = userText;
-  chatBox.appendChild(userMessage);
-
-  const botMessage = document.createElement('div');
-  botMessage.className = 'message bot';
-
-  // Lógica de respuesta simple
-  if (userText.toLowerCase().includes('hola')) {
-    botMessage.textContent = '¡Hola! ¿En qué puedo ayudarte?';
-  } else if (userText.toLowerCase().includes('precio')) {
-    botMessage.textContent = 'Nuestros precios varían según el servicio. ¿Qué necesitas?';
-  } else if (userText.toLowerCase().includes('gracias')) {
-    botMessage.textContent = '¡Con gusto!';
+  if (!isDeleting && charIndex < currentWord.length) {
+    charIndex++;
+    setTimeout(typeEffect, 100);
+  } else if (isDeleting && charIndex > 0) {
+    charIndex--;
+    setTimeout(typeEffect, 60);
   } else {
-    botMessage.textContent = 'Lo siento, aún no entiendo eso.';
+    isDeleting = !isDeleting;
+    if (!isDeleting) wordIndex = (wordIndex + 1) % words.length;
+    setTimeout(typeEffect, 1000);
   }
-
-  chatBox.appendChild(botMessage);
-  chatBox.scrollTop = chatBox.scrollHeight;
-  input.value = '';
 }
 
+document.addEventListener('DOMContentLoaded', typeEffect);
+
+
+
+ //portafolio
+
+ //portfolio
+const cards = document.querySelectorAll('.card');
+const buttons = document.querySelectorAll('.filter-buttons button');
+const modal = document.getElementById('modal');
+const closeBtn = document.getElementById('closeBtn');
+const modalImg = document.getElementById('modalImg');
+const modalTitle = document.getElementById('modalTitle');
+const modalDesc = document.getElementById('modalDesc');
+const modalLink = document.getElementById('modalLink');
+
+// Evitar que el modal se muestre al cargar accidentalmente
+modal.style.display = 'none';
+
+// Animar tarjetas al hacer scroll
+let hasScrolled = false;
+window.addEventListener('scroll', () => {
+  hasScrolled = true;
+  const triggerBottom = window.innerHeight * 0.85;
+  cards.forEach(card => {
+    const cardTop = card.getBoundingClientRect().top;
+    if (cardTop < triggerBottom) {
+      card.classList.add('visible');
+    }
+  });
+});
+
+// Filtrar proyectos por categoría
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    buttons.forEach(btn => btn.classList.remove('active'));
+    button.classList.add('active');
+
+    const category = button.getAttribute('data-category');
+    cards.forEach(card => {
+      if (category === 'all' || card.dataset.category === category) {
+        card.classList.remove('hidden');
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+
+// Mostrar modal SOLO en clic real del usuario
+cards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    if (!e.isTrusted) return; // Garantiza que sea clic real
+    e.preventDefault();
+
+    // Asignar datos al modal
+    modalImg.src = card.dataset.img;
+    modalTitle.textContent = card.dataset.title;
+    modalDesc.textContent = card.dataset.desc;
+    modalLink.href = card.dataset.link;
+
+    modal.style.display = 'flex';
+  });
+});
+
+// Cerrar modal
+closeBtn.addEventListener('click', () => modal.style.display = 'none');
+modal.addEventListener('click', e => { 
+  if (e.target === modal) modal.style.display = 'none'; 
+});
